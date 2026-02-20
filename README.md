@@ -1,19 +1,47 @@
-This project aimed to develop a predictive model to identify patients at risk of hospital readmission using administrative and clinical data available during hospitalization.
+# Hospital Readmission Risk Prediction
 
-**The analysis included:**
+### Overview
+Hospital readmissions represent a major cost and quality challenge in healthcare systems. This project develops a machine learning model to predict patient readmission risk using administrative and clinical data available during hospitalization.
 
-1.Demographic profile (Age)
-2. Hospital stay complexity
-3. Prior healthcare system utilization
-4. Primary diagnosis
-4. Diabetes management indicators
+### Goal: 
+To identify high-risk patients early and support preventive interventions.
 
-The final selected model was Logistic Regression with adjusted decision threshold (0.4).
+### Problem Statement:
+Can we predict whether a patient will be readmitted based on available hospitalization and prior utilization data?
 
-**Key Results:**
+### Dataset:
 
-- ROC-AUC: 0.64
-- Recall: 75%
-- Precision: 53%
+The dataset contains 10 years of hospitalization data, including:
 
-The model successfully identifies approximately 3 out of 4 patients who will be readmitted, prioritizing early detection over strict precision.
+- Patient age group
+- Length of stay
+- Number of lab procedures
+- Number of medications
+- Prior inpatient, outpatient, and emergency visits
+- Primary and secondary diagnoses
+- Diabetes management indicators
+- Readmission outcome (yes/no)
+
+Each row represents a single hospital encounter
+
+### Exploratory Data Analysis:
+
+**Key insights:**
+
+1. Prior inpatient visits are the strongest predictor of readmission.
+2. Readmission risk increases with age (up to 80–90 years).
+3. Patients with chronic conditions (e.g., diabetes, circulatory diseases) show higher readmission rates.
+4. Hospital stay complexity shows moderate impact compared to prior utilization.
+
+### Models Implemented:
+- Logistic Regression
+- Random Forest
+
+Threshold optimization was performed to prioritize recall
+
+### Limitations:
+
+- No socioeconomic variables
+- No post-discharge data
+- Limited diagnostic granularity
+- No mortality information
