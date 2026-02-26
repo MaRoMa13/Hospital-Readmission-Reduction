@@ -1,47 +1,74 @@
 # Hospital Readmission Risk Prediction
 
-### Overview
-Hospital readmissions represent a major cost and quality challenge in healthcare systems. This project develops a machine learning model to predict patient readmission risk using administrative and clinical data available during hospitalization.
+This project presents a machine learning–based analysis of hospital administrative and clinical data to identify key predictors of patient readmission, supporting data-driven healthcare intervention strategies.
 
-### Goal: 
-To identify high-risk patients early and support preventive interventions.
+## Industry
 
-### Problem Statement:
-Can we predict whether a patient will be readmitted based on available hospitalization and prior utilization data?
+Healthcare / Health Tech / Hospital Operations
 
-### Dataset:
+## Business Problem
 
-The dataset contains 10 years of hospitalization data, including:
+Hospital readmissions represent a major cost and quality challenge for healthcare systems.
+Healthcare providers need a way to identify high-risk patients at discharge in order to implement preventive interventions and reduce avoidable readmissions.
+
+## Objective
+
+Develop a predictive model to estimate the probability of 30-day hospital readmission using structured hospitalization and prior utilization data.
+
+## Data Description
+
+Dataset containing 10 years of hospital encounter data (20K+ records), including:
 
 - Patient age group
-- Length of stay
+- Length of hospital stay
 - Number of lab procedures
-- Number of medications
+- Number of medications administered
 - Prior inpatient, outpatient, and emergency visits
 - Primary and secondary diagnoses
 - Diabetes management indicators
-- Readmission outcome (yes/no)
+- Readmission outcome (Yes/No)
 
-Each row represents a single hospital encounter
+Each row represents a single hospital encounter.
 
-### Exploratory Data Analysis:
+## Tools Used
 
-**Key insights:**
-
-1. Prior inpatient visits are the strongest predictor of readmission.
-2. Readmission risk increases with age (up to 80–90 years).
-3. Patients with chronic conditions (e.g., diabetes, circulatory diseases) show higher readmission rates.
-4. Hospital stay complexity shows moderate impact compared to prior utilization.
-
-### Models Implemented:
+- Python (Pandas, NumPy)
+- Scikit-learn
 - Logistic Regression
 - Random Forest
+- Data Cleaning & Feature Engineering
+- Classification Metrics (Recall, Precision, ROC-AUC)
 
-Threshold optimization was performed to prioritize recall
+## Methodology
 
-### Limitations:
+1. Performed data cleaning, preprocessing, and categorical encoding.
+2. Conducted structured Exploratory Data Analysis (EDA) by demographic, clinical complexity, prior utilization, and diagnosis categories.
+3. Built baseline classification models.
+4. Trained and evaluated Logistic Regression and Random Forest models.
+5. Optimized the decision threshold to prioritize recall in a healthcare context.
+6. Compared model performance using ROC-AUC, Recall, Precision, and confusion matrix analysis.
 
-- No socioeconomic variables
-- No post-discharge data
-- Limited diagnostic granularity
-- No mortality information
+## Key Findings
+
+- Prior inpatient visits were the strongest predictor of readmission (patients with previous admissions showed more than 2x higher risk).
+- Readmission risk increased progressively with age up to the 80–90 group.
+- Chronic conditions (especially Diabetes) showed higher readmission rates than acute conditions.
+- Adjusting the classification threshold increased recall from 41% to 75%, improving early identification of high-risk patients.
+
+## Business Impact
+
+The model enables healthcare providers to:
+
+- Identify high-risk patients before discharge
+- Prioritize follow-up interventions
+- Improve resource allocation
+- Potentially reduce readmission-related costs
+
+By prioritizing recall, the model supports preventive healthcare strategies.
+
+## Challenges & Learnings
+
+- Observed limited predictive improvement from non-linear models, suggesting predominantly linear relationships in structured hospital data.
+- Learned to balance precision vs recall based on real-world healthcare priorities.
+- Reinforced understanding of model interpretability in clinical contexts.
+- Recognized limitations of administrative-only datasets without socioeconomic or post-discharge variables.
